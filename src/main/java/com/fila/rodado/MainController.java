@@ -22,5 +22,8 @@ public class MainController {
         template.send(properties.getFiladeteste1(),new Message(mensagem.getBytes()));
         return ResponseEntity.ok("mensagem enviadado");
     }
-
+    @GetMapping("/pega")
+    public ResponseEntity getMessages(){
+        return ResponseEntity.ok(template.receive(properties.getFiladeteste1()).getBody());
+    }
 }
